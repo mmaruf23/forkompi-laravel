@@ -1,0 +1,40 @@
+### REGISTER USER
+POST http://localhost:8000/api/register
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Makari",
+  "username": "makari",
+  "email": "makari@example.com",
+  "password": "secret123",
+  "password_confirmation": "secret123"
+}
+
+###
+
+### LOGIN USER
+POST http://localhost:8000/api/login
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "makari@example.com",
+  "password": "secret123"
+}
+
+###
+
+### LOGOUT USER
+POST http://localhost:8000/api/logout
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer 1|yEm7KfPTGl0Hp0HInLxH4Mmu2YaGO0Rz5lUO7PBfcc82c6e5
+
+###
+
+### GET AUTH USER (optional)
+GET http://localhost:8000/api/user
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer 1|yEm7KfPTGl0Hp0HInLxH4Mmu2YaGO0Rz5lUO7PBfcc82c6e5
