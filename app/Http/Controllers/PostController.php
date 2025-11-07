@@ -79,7 +79,7 @@ class PostController extends Controller
             return response()->json(['message' => 'Post not found'], 404);
         }
 
-        // $this->authorize('update', $post); // optional: pakai policy
+        $this->authorize('update', $post);
 
         $validated = $request->validate([
             'title' => 'sometimes|string|max:255',
@@ -122,6 +122,8 @@ class PostController extends Controller
         if (! $post) {
             return \response()->json(['message' => "Post not found"], 404);
         }
+
+        $this->authorize('delete', $post);
 
         $post->delete();
 

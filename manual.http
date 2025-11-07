@@ -73,19 +73,13 @@ Content-Type: application/json
 }
 
 ### UPDATE post
-PUT {{baseUrl}}/posts/21
+PUT {{baseUrl}}/posts/1
 Accept: application/json
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "title": "Belajar Laravel Sanctum (Update)",
-  "slug": "belajar-laravel-sanctum-update",
-  "excerpt": "Update artikel Sanctum",
-  "content": "Konten yang sudah diperbarui...",
-  "featured_image": "images/laravel-sanctum-update.png",
-  "status": "published",
-  "published_at": "2025-11-07T10:00:00"
+  "title": "Test update gagal policy"
 }
 
 ### DELETE post
