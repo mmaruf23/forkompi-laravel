@@ -1,5 +1,9 @@
+@baseUrl = http://localhost:8000/api
+@token = 6|jRBtSutz4Va0DAZYaLVhI0uuR6uBJh9jFZpgimlFc1e3b5ff
+
+
 ### REGISTER USER
-POST http://localhost:8000/api/register
+POST {{baseUrl}}/register
 Content-Type: application/json
 Accept: application/json
 
@@ -14,7 +18,7 @@ Accept: application/json
 ###
 
 ### LOGIN USER
-POST http://localhost:8000/api/login
+POST {{baseUrl}}/login
 Content-Type: application/json
 Accept: application/json
 
@@ -26,15 +30,65 @@ Accept: application/json
 ###
 
 ### LOGOUT USER
-POST http://localhost:8000/api/logout
+POST {{baseUrl}}/logout
 Content-Type: application/json
 Accept: application/json
-Authorization: Bearer 1|yEm7KfPTGl0Hp0HInLxH4Mmu2YaGO0Rz5lUO7PBfcc82c6e5
+Authorization: Bearer {{token}}
 
 ###
 
 ### GET AUTH USER (optional)
-GET http://localhost:8000/api/user
+GET {{baseUrl}}/user
 Content-Type: application/json
 Accept: application/json
-Authorization: Bearer 1|yEm7KfPTGl0Hp0HInLxH4Mmu2YaGO0Rz5lUO7PBfcc82c6e5
+Authorization: Bearer {{token}}
+
+
+/* ===========================
+   📰 POST ROUTES
+   =========================== */
+
+### GET all posts
+GET {{baseUrl}}/posts
+Accept: application/json
+
+### GET single post
+GET {{baseUrl}}/posts/20
+Accept: application/json
+
+### CREATE new post
+POST {{baseUrl}}/posts
+Accept: application/json
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Belajar Laravel Sanctum",
+  "slug": "belajar-laravel-sanctum",
+  "excerpt": "Panduan singkat membuat API auth dengan Laravel Sanctum",
+  "content": "Ini isi lengkap postingannya...",
+  "featured_image": "images/laravel-sanctum.png",
+  "status": "published",
+  "published_at": "2025-11-07T09:00:00"
+}
+
+### UPDATE post
+PUT {{baseUrl}}/posts/21
+Accept: application/json
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Belajar Laravel Sanctum (Update)",
+  "slug": "belajar-laravel-sanctum-update",
+  "excerpt": "Update artikel Sanctum",
+  "content": "Konten yang sudah diperbarui...",
+  "featured_image": "images/laravel-sanctum-update.png",
+  "status": "published",
+  "published_at": "2025-11-07T10:00:00"
+}
+
+### DELETE post
+DELETE {{baseUrl}}/posts/21
+Accept: application/json
+Authorization: Bearer {{token}}
