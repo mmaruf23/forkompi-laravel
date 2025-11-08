@@ -63,14 +63,39 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "title": "Belajar Laravel Sanctum",
-  "slug": "belajar-laravel-sanctum",
-  "excerpt": "Panduan singkat membuat API auth dengan Laravel Sanctum",
-  "content": "Ini isi lengkap postingannya...",
-  "featured_image": "images/laravel-sanctum.png",
-  "status": "published",
-  "published_at": "2025-11-07T09:00:00"
+  "title": "Belajar Laravel Sanctum Ini contoh aja sih",
+  "excerpt": "Panduan singkat membuat API auth dengan Laravel Sanctum updated ehe",
+  "content": "Ini isi lengkap postingannya... lagi",
+  "status": "draft"
 }
+
+### Create new post with image
+### ini gak bisa karena entahlah, tapi kalau pake postman bisa kok.
+POST {{baseUrl}}/posts
+Authorization: Bearer {{token}}
+Content-Type: multipart/form-data
+
+--boundary
+Content-Disposition: form-data; name="title"
+
+Judul Post Contoh Updated
+--boundary
+Content-Disposition: form-data; name="excerpt"
+
+Ini contoh excerpt
+--boundary
+Content-Disposition: form-data; name="content"
+
+Ini adalah isi postingan dengan gambar.
+--boundary
+Content-Disposition: form-data; name="featured_image"; filename="logo.png"
+Content-Type: image/png
+
+< ./C:/Users/mmaruf23/Pictures/logo.png
+--boundary--
+
+### GET GAMBAR
+GET http://localhost:8000/storage/posts/contoh-judul-postingan-nambah-lagi.png
 
 ### UPDATE post
 PUT {{baseUrl}}/posts/1
