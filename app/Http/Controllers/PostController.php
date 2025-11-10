@@ -42,7 +42,7 @@ class PostController extends Controller
 
         if($request->hasFile("featured_image")) {
             $filename = $slug . "." . $request->file('featured_image')->getClientOriginalExtension();
-            $path = $request->file("featured_image")->storeAs('posts', $filename, 'public');
+            $path = $request->file("featured_image")->storeAs('images', $filename, 'public');
         }
 
 
@@ -119,7 +119,7 @@ class PostController extends Controller
             }
 
             $filename = $slug . "." . $request->file('featured_image')->getClientOriginalExtension();
-            $path = $request->file("featured_image")->storeAs('posts', $filename, 'public');
+            $path = $request->file("featured_image")->storeAs('images', $filename, 'public');
             $validated['featured_image'] = $path;
 
         }
